@@ -1,0 +1,17 @@
+syntax = "proto3";
+package de.mcc;
+option java_package = "de.mcc";
+
+enum TaskStatus {
+  OPEN = 0;
+  ASSIGNED = 1;
+  COMPLETED = 2;
+}
+
+message Task {
+  uint32 task_id = 1;
+  string title = 2;
+  string description = 3;
+  string assignee_name = 4;
+  TaskStatus status = 5;
+}

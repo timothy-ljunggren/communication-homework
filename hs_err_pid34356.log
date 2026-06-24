@@ -1,0 +1,281 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 262144000 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3557), pid=34356, tid=6352
+#
+# JRE version:  (25.0+36) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25+36-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-aarch64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Users\timot\AppData\Local\Programs\IntelliJ IDEA Ultimate\lib\idea_rt.jar=55704 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 org.example.TaskServer
+
+Host: Snapdragon(R) X 12-core X1E80100 @ 3.40 GHz, 12 cores, 15G,  Windows 11 , 64 bit Build 26100 (10.0.26100.8521)
+Time: Sun Jun 21 15:31:45 2026 Mitteleuropäische Sommerzeit elapsed time: 1.130825 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000260a71df9a0):  JavaThread "Unknown thread" [_thread_in_vm, id=6352, stack(0x000000d029c00000,0x000000d029d00000) (1024K)]
+
+Stack: [0x000000d029c00000,0x000000d029d00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6de954]  (no source info available)
+V  [jvm.dll+0x6aac80]  (no source info available)
+V  [jvm.dll+0x8ff458]  (no source info available)
+V  [jvm.dll+0x901658]  (no source info available)
+V  [jvm.dll+0x901d18]  (no source info available)
+V  [jvm.dll+0x256264]  (no source info available)
+V  [jvm.dll+0x6ddd64]  (no source info available)
+V  [jvm.dll+0x6d01dc]  (no source info available)
+V  [jvm.dll+0x3392e4]  (no source info available)
+V  [jvm.dll+0x340b20]  (no source info available)
+V  [jvm.dll+0x32df78]  (no source info available)
+V  [jvm.dll+0x32e220]  (no source info available)
+V  [jvm.dll+0x3058bc]  (no source info available)
+V  [jvm.dll+0x306610]  (no source info available)
+V  [jvm.dll+0x8c3664]  (no source info available)
+V  [jvm.dll+0x3a0514]  (no source info available)
+V  [jvm.dll+0x8a66e4]  (no source info available)
+V  [jvm.dll+0x44413c]  (no source info available)
+C  [jli.dll+0x53fc]  (no source info available)
+C  [ucrtbase.dll+0x2b028]  (no source info available)
+C  0x2d04fffb5ba38740  (no source info available)
+
+Lock stack of current Java thread (top to bottom):
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffa369c6e10, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x00000260a76228f0 WorkerThread "GC Thread#0"                     [id=36016, stack(0x000000d029d00000,0x000000d029e00000) (1024K)]
+  0x00000260a7141a20 ConcurrentGCThread "G1 Main Marker"            [id=24964, stack(0x000000d029e00000,0x000000d029f00000) (1024K)]
+  0x00000260a76339f0 WorkerThread "G1 Conc#0"                       [id=35068, stack(0x000000d029f00000,0x000000d02a000000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa360aa718]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffa36a70300] Heap_lock - owner thread: 0x00000260a71df9a0
+
+Heap address: 0x0000000706400000, size: 3996 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+UseCompressedClassPointers 1, UseCompactObjectHeaders 0
+Narrow klass pointer bits 32, Max shift 3
+Narrow klass base: 0xffffffffffffffff, Narrow klass shift: -1
+Encoding Range: [0xffffffffffffffff - 0x000000007fffffff), (2147483648 bytes)
+Klass Range:    [0x0000000000000000 - 0x0000000000000000), (0 bytes)
+Klass ID Range:  [4294967295 - 0) (1)
+No protection zone.
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+
+Heap:
+ garbage-first heap   total reserved 4091904K, committed 0K, used 0K [0x0000000706400000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+
+Card table byte_map: [0x00000260c3000000,0x00000260c37d0000] _byte_map_base: 0x00000260bf7ce000
+
+Marking Bits: (CMBitMap*) 0x00000260a7632f20
+ Bits: [0x00000260c37d0000, 0x00000260c7640000)
+
+GC Heap Usage History (0 events):
+No events
+
+Metaspace Usage History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.014 Loaded shared library C:\Users\timot\.jdks\ms-25.0.0\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6362a0000 - 0x00007ff6362ae000 	C:\Users\timot\.jdks\ms-25.0.0\bin\java.exe
+0x00007ffb5e470000 - 0x00007ffb5e8a7000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffb5ba30000 - 0x00007ffb5bb99000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffb59cf0000 - 0x00007ffb5a3c2000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffb59800000 - 0x00007ffb59a29000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffb273d0000 - 0x00007ffb27404000 	C:\Users\timot\.jdks\ms-25.0.0\bin\VCRUNTIME140.dll
+0x00007ffb3edd0000 - 0x00007ffb3ede7000 	C:\Users\timot\.jdks\ms-25.0.0\bin\jli.dll
+0x00007ffb5bba0000 - 0x00007ffb5be1e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffb59b30000 - 0x00007ffb59b91000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffb33c60000 - 0x00007ffb340cf000 	C:\WINDOWS\WinSxS\arm64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8521_none_3e08b6bae33404f7\COMCTL32.dll
+0x00007ffb5b490000 - 0x00007ffb5b5d8000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffb5db70000 - 0x00007ffb5dbd5000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffb5a3d0000 - 0x00007ffb5a5b9000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffb5a5c0000 - 0x00007ffb5a719000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffb5de50000 - 0x00007ffb5dea7000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffaf7bb0000 - 0x00007ffaf7d04000 	C:\Users\timot\.jdks\ms-25.0.0\bin\msvcp140.dll
+0x00007ffa35d90000 - 0x00007ffa36b1b000 	C:\Users\timot\.jdks\ms-25.0.0\bin\server\jvm.dll
+0x00007ffb5d460000 - 0x00007ffb5d5a4000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffb5da40000 - 0x00007ffb5db66000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffb5dc40000 - 0x00007ffb5de43000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffb5b5e0000 - 0x00007ffb5b6b6000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffb595b0000 - 0x00007ffb5962c000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ffb34370000 - 0x00007ffb343d3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffb3cde0000 - 0x00007ffb3cdf6000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffb59580000 - 0x00007ffb595a5000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ffb57610000 - 0x00007ffb57641000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffb44160000 - 0x00007ffb4416a000 	C:\Users\timot\.jdks\ms-25.0.0\bin\jimage.dll
+0x00007ffb54800000 - 0x00007ffb54c3b000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffb5ab30000 - 0x00007ffb5b1c2000 	C:\WINDOWS\System32\combase.dll
+0x00007ffb5be30000 - 0x00007ffb5bfd7000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffb27c60000 - 0x00007ffb27cce000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffb59a30000 - 0x00007ffb59b27000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffb274c0000 - 0x00007ffb274cf000 	C:\Users\timot\.jdks\ms-25.0.0\bin\instrument.dll
+0x00007ffb38b50000 - 0x00007ffb38b70000 	C:\Users\timot\.jdks\ms-25.0.0\bin\java.dll
+0x00007ffb5b1d0000 - 0x00007ffb5b47e000 	C:\WINDOWS\System32\ole32.dll
+0x00007ffb5c030000 - 0x00007ffb5cee5000 	C:\WINDOWS\System32\SHELL32.dll
+
+JVMTI agents:
+C:\Users\timot\AppData\Local\Programs\IntelliJ IDEA Ultimate\lib\idea_rt.jar path:none, loaded, not initialized, instrumentlib options:55704
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\timot\.jdks\ms-25.0.0\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\arm64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8521_none_3e08b6bae33404f7;C:\Users\timot\.jdks\ms-25.0.0\bin\server
+
+VM Arguments:
+jvm_args: -javaagent:C:\Users\timot\AppData\Local\Programs\IntelliJ IDEA Ultimate\lib\idea_rt.jar=55704 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: org.example.TaskServer
+java_class_path (initial): C:\Users\timot\ue2\target\classes;C:\Users\timot\.m2\repository\com\google\protobuf\protobuf-java\3.25.3\protobuf-java-3.25.3.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-netty-shaded\1.62.2\grpc-netty-shaded-1.62.2.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-util\1.62.2\grpc-util-1.62.2.jar;C:\Users\timot\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.23\animal-sniffer-annotations-1.23.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-core\1.62.2\grpc-core-1.62.2.jar;C:\Users\timot\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\timot\.m2\repository\com\google\android\annotations\4.1.1.4\annotations-4.1.1.4.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-context\1.62.2\grpc-context-1.62.2.jar;C:\Users\timot\.m2\repository\com\google\guava\guava\32.1.3-android\guava-32.1.3-android.jar;C:\Users\timot\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\timot\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\timot\.m2\repository\org\checkerframework\checker-qual\3.37.0\checker-qual-3.37.0.jar;C:\Users\timot\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\timot\.m2\repository\com\google\errorprone\error_prone_annotations\2.23.0\error_prone_annotations-2.23.0.jar;C:\Users\timot\.m2\repository\io\perfmark\perfmark-api\0.26.0\perfmark-api-0.26.0.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-api\1.62.2\grpc-api-1.62.2.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-protobuf\1.62.2\grpc-protobuf-1.62.2.jar;C:\Users\timot\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\timot\.m2\repository\com\google\api\grpc\proto-google-common-protos\2.29.0\proto-google-common-protos-2.29.0.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-protobuf-lite\1.62.2\grpc-protobuf-lite-1.62.2.jar;C:\Users\timot\.m2\repository\io\grpc\grpc-stub\1.62.2\grpc-stub-1.62.2.jar;C:\Users\timot\.m2\repository\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+   size_t InitialHeapSize                          = 262144000                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MarkStackSizeMax                         = 536870912                                 {product} {ergonomic}
+   size_t MaxHeapSize                              = 4190109696                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832704                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122945536                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122880000                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4190109696                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Release file:
+<release file has not been read>
+Environment Variables:
+PATH=C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python314\Scripts\;C:\Python314\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Users\timot\AppData\Local\Microsoft\WindowsApps;C:\Users\timot\AppData\Roaming\npm;C:\Users\timot\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\timot\AppData\Local\Programs\Antigravity\bin;C:\Users\timot\.local\bin;C:\Users\timot\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin
+USERNAME=timot
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=ARMv8 (64-bit) Family 8 Model 1 Revision 201, Qualcomm Technologies Inc
+TMP=C:\Users\timot\AppData\Local\Temp
+TEMP=C:\Users\timot\AppData\Local\Temp
+
+
+
+
+Compilation memory statistics disabled.
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.8521)
+OS uptime: 2 days 5:35 hours
+
+CPU: total 12 (initial active 12) 0x00:0x0:0x000:0, asimd, aes, sha1, sha256, crc32
+Processor Information for processor 0
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 1
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 2
+  Max Mhz: 3417, Current Mhz: 1920, Mhz Limit: 3417
+Processor Information for processor 3
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 4
+  Max Mhz: 3417, Current Mhz: 1920, Mhz Limit: 3417
+Processor Information for processor 5
+  Max Mhz: 3417, Current Mhz: 1920, Mhz Limit: 3417
+Processor Information for processor 6
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 7
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 8
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 9
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 10
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+Processor Information for processor 11
+  Max Mhz: 3417, Current Mhz: 1190, Mhz Limit: 3417
+
+Memory: 4k page, system-wide physical 15979M (949M free)
+TotalPageFile size 46213M (AvailPageFile size 123M)
+current process WorkingSet (physical memory assigned to process): 15M, peak: 15M
+current process commit charge ("private bytes"): 65M, peak: 315M
+
+vm_info: OpenJDK 64-Bit Server VM (25+36-LTS) for windows-aarch64 JRE (25+36-LTS), built on 2025-09-23T19:39:13Z with unknown MS VC++:1944
+
+END.

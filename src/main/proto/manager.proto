@@ -1,0 +1,37 @@
+syntax = "proto3";
+package de.mcc;
+option java_package = "de.mcc";
+import "task.proto";
+
+message CreateTaskRequest {
+  string title = 1;
+  string description = 2;
+}
+
+message CreateTaskResponse {
+  Task created_task = 1;
+}
+
+message AssignTaskRequest {
+  uint32 task_id = 1;
+  string assignee_name = 2;
+}
+
+message AssignTaskResponse {
+  Task updated_task = 1;
+  bool success = 2;
+}
+
+message GetMetricsRequest {}
+
+message GetMetricsResponse {
+  uint32 total_tasks = 1;
+  uint32 open_tasks_count = 2;
+  uint32 completed_tasks_count = 3;
+}
+
+service ManagerService {
+  rpc CreateNewTask(CreateTaskRequest) returns (CreateTaskResponse) {}
+  rpc AssignTaskToWorker(AssignTaskRequest) returns (AssignTaskResponse) {}
+  rpc GetSystemMetrics(GetMetricsRequest) returns (GetMetricsResponse) {}
+}

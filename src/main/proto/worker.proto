@@ -1,0 +1,27 @@
+syntax = "proto3";
+package de.mcc;
+option java_package = "de.mcc";
+import "task.proto";
+
+message GetMyTasksRequest {
+  string worker_name = 1;
+}
+
+message GetMyTasksResponse {
+  repeated Task assigned_tasks = 1;
+}
+
+message CompleteTaskRequest {
+  uint32 taskId = 1;
+  string worker_name = 2;
+}
+
+message CompleteTaskResponse {
+  bool success = 1;
+  Task completed_task = 2;
+}
+
+service WorkerService {
+  rpc FetchMyTasks(GetMyTasksRequest) returns (GetMyTasksResponse) {};
+  rpc MarkTaskAsCompleted(CompleteTaskRequest) returns (CompleteTaskResponse) {};
+}
