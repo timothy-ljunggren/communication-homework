@@ -361,20 +361,4 @@ Die Seite enthält valides HTML und nutzt JavaScript für interaktive Funktional
 
 ---
 
-## 4. Verwendete Bibliotheken
-
-Auch mit mehr Details nachzulesen in [`pom.xml`](./pom.xml).
-
-| Bibliothek | Version | Zweck |
-|---|---|---|
-| [gRPC Netty Shaded](https://grpc.io/) | 1.68.1 | gRPC-Laufzeitumgebung (Transport) |
-| [gRPC Protobuf](https://grpc.io/) | 1.68.1 | Protobuf-Integration für gRPC |
-| [gRPC Stub](https://grpc.io/) | 1.68.1 | Generierte Client-Stubs |
-| [gRPC In-Process](https://grpc.io/) | 1.68.1 | In-Process-Transport für Tests |
-| [Protobuf Java](https://protobuf.dev/) | 3.25.5 | Protobuf-Serialisierung |
-| [Gson](https://github.com/google/gson) | 2.11.0 | JSON-Parsing (HTTPClient) |
-| [JUnit Jupiter](https://junit.org/) | 5.10.2 | Test-Annotationen |
-
----
-
 *Timothy Ljunggren · Engineering verteilter Anwendungen SS 2026 · Übung 02*
