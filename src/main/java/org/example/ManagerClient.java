@@ -1,5 +1,7 @@
 package org.example;
 
+import static org.example.Helper.readLine;
+
 import de.mcc.Manager;
 import de.mcc.ManagerServiceGrpc;
 import de.mcc.TaskOuterClass.Task;
@@ -7,8 +9,6 @@ import io.grpc.Grpc;
 import io.grpc.InsecureChannelCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.StatusRuntimeException;
-
-import static org.example.Helper.readLine;
 
 /**
  * Chief (Manager) client – create tasks, assign them to workers, view metrics.
@@ -63,11 +63,10 @@ public class ManagerClient {
         String title = readLine("Title");
         String description = readLine("Description");
         try {
-            Manager.CreateTaskResponse resp = stub.createNewTask(
-                    Manager.CreateTaskRequest.newBuilder()
-                            .setTitle(title)
-                            .setDescription(description)
-                            .build());
+            Manager.CreateTaskResponse resp = stub.createNewTask(Manager.CreateTaskRequest.newBuilder()
+                    .setTitle(title)
+                    .setDescription(description)
+                    .build());
             Task t = resp.getCreatedTask();
             System.out.println("Task created: [" + t.getTaskId() + "] " + t.getTitle());
         } catch (StatusRuntimeException e) {
@@ -80,11 +79,10 @@ public class ManagerClient {
         String assignee = readLine("Assignee name");
         try {
             int taskId = Integer.parseInt(idStr);
-            Manager.AssignTaskResponse resp = stub.assignTaskToWorker(
-                    Manager.AssignTaskRequest.newBuilder()
-                            .setTaskId(taskId)
-                            .setAssigneeName(assignee)
-                            .build());
+            Manager.AssignTaskResponse resp = stub.assignTaskToWorker(Manager.AssignTaskRequest.newBuilder()
+                    .setTaskId(taskId)
+                    .setAssigneeName(assignee)
+                    .build());
             if (resp.getSuccess()) {
                 Task t = resp.getUpdatedTask();
                 System.out.println("Task [" + t.getTaskId() + "] " + t.getTitle() + " assigned to " + t.getAssigneeName());
@@ -100,9 +98,8 @@ public class ManagerClient {
 
     private void handleGetMetrics() {
         try {
-            Manager.GetMetricsResponse resp = stub.getSystemMetrics(
-                    Manager.GetMetricsRequest.newBuilder().build());
-            System.out.println("\n  --- System Metrics ---");
+            Manager.GetMetricsResponse resp = stub.getSystemMetrics(Manager.GetMetricsRequest.newBuilder().build());
+            System.out.println("\n=== System Metrics ===");
             System.out.println("Total tasks: " + resp.getTotalTasks());
             System.out.println("Open:        " + resp.getOpenTasksCount());
             System.out.println("Completed:   " + resp.getCompletedTasksCount());
