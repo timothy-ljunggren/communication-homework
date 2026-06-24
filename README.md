@@ -1,4 +1,4 @@
-> Dieses Dokument wurde als PDF aus der `README.md` generiert. Die bessere Lesbarkeit sowie funktionierende Bilder befinden sich im Repository unter `README.md` oder auf [GitHub](https://github.com/timothy-ljunggren/communication-homework).  
+> Dieses Dokument wurde als PDF aus der `README.md` generiert. Für bessere Lesbarkeit befindet sie sich im Repository unter `README.md` oder auf [GitHub](https://github.com/timothy-ljunggren/communication-homework).
 > Beachte dass für die Mermaid Diagramme möglicherweise Plugins installiert werden müssen
 
 ---
