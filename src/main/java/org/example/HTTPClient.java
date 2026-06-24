@@ -82,9 +82,9 @@ public class HTTPClient {
             double windspeed = cw.get("windspeed").getAsDouble();
             int weathercode = cw.get("weathercode").getAsInt();
 
-            System.out.printf("Temperatur : %.1f °C%n", temperature);
-            System.out.printf("Windstärke : %.1f km/h%n", windspeed);
-            System.out.printf("Wetterlage : %s%n%n", describeWeatherCode(weathercode));
+            System.out.printf("Temperatur: %.1f °C%n", temperature);
+            System.out.printf("Windstärke: %.1f km/h%n", windspeed);
+            System.out.printf("Wetterlage: %s%n%n", describeWeatherCode(weathercode));
         }
     }
 
