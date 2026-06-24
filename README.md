@@ -252,7 +252,7 @@ Die Datei `TaskServerThreadSafetyTest.java` enthält drei Tests, die über gRPCs
 3 tests passed
 ```
 
-![Screenshot of Test Run Result](image2.png)
+![Screenshot of Test Run Result](media/image2.png)
 
 ---
 
@@ -347,7 +347,7 @@ System.out.printf("Wetterlage: %s%n", describeWeatherCode(weathercode));
 
 ### 2.3 Beispielausgabe
 
-![Screenshot of Terminal of HTTPClient](image3.png)
+![Screenshot of Terminal of HTTPClient](media/image3.png)
 
 ---
 
@@ -357,7 +357,7 @@ Die Webseite ist erreichbar unter: [Timothy Ljunggren – Projects](https://www.
 
 Die Seite enthält valides HTML und nutzt JavaScript für interaktive Funktionalität.
 
-![Screenshot of my TU User Page](image4.png)
+![Screenshot of my TU User Page](media/image4.png)
 
 ---
 
