@@ -89,17 +89,35 @@ public class HTTPClient {
     }
 
     private static String describeWeatherCode(int code) {
-        if (code == 0) return "Klarer Himmel";
-        if (code == 1) return "Überwiegend klar";
-        if (code == 2) return "Teilweise bewölkt";
-        if (code == 3) return "Bedeckt";
-        if (code >= 45 && code <= 48) return "Nebel";
-        if (code >= 51 && code <= 55) return "Nieselregen";
-        if (code >= 61 && code <= 65) return "Regen";
-        if (code >= 71 && code <= 75) return "Schneefall";
-        if (code >= 80 && code <= 82) return "Regenschauer";
-        if (code >= 95 && code <= 99) return "Gewitter";
-        return "Unbekannt (Code " + code + ")";
+        return switch (code) {
+            case 0 -> "Klarer Himmel";
+            case 1 -> "Überwiegend klar";
+            case 2 -> "Teilweise bewölkt";
+            case 3 -> "Bedeckt";
+            case 45, 48 -> "Nebel";
+            case 51 -> "Nieselregen: Leicht";
+            case 53 -> "Nieselregen: Mäßig";
+            case 55 -> "Nieselregen: Dicht";
+            case 56 -> "Gefrierender Nieselregen: Leicht";
+            case 57 -> "Gefrierender Nieselregen: Dicht";
+            case 61 -> "Regen: Leicht";
+            case 63 -> "Regen: Mäßig";
+            case 65 -> "Regen: Stark";
+            case 66 -> "Gefrierender Regen: Leicht";
+            case 67 -> "Gefrierender Regen: Stark";
+            case 71 -> "Schneefall: Leicht";
+            case 73 -> "Schneefall: Mäßig";
+            case 75 -> "Schneefall: Stark";
+            case 77 -> "Schneekörner";
+            case 80 -> "Regenschauer: Leicht";
+            case 81 -> "Regenschauer: Mäßig";
+            case 82 -> "Regenschauer: Heftig";
+            case 85 -> "Schneeschauer: Leicht";
+            case 86 -> "Schneeschauer: Stark";
+            case 95 -> "Gewitter: Leicht bis mäßig";
+            case 96, 99 -> "Gewitter mit Hagel";
+            default -> "Unbekannt (Code " + code + ")";
+        };
     }
 }
 
